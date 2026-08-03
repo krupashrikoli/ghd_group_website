@@ -1,0 +1,118 @@
+.highlights {
+  width: min(980px, 100%);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  flex-shrink: 0;
+}
+
+.highlights__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(8px, 1vw, 12px);
+  padding: clamp(10px, 1.4vh, 16px) clamp(14px, 1.8vw, 20px);
+  color: var(--gold-light);
+  font-weight: 400;
+  font-size: clamp(15px, 1.2vw, 18px);
+  line-height: 1.3;
+}
+
+.highlights__item::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 72%;
+  width: 2px;
+  background: var(--gold-light);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 18%,
+    #000 82%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 18%,
+    #000 82%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.highlights__item:last-child::after {
+  display: none;
+}
+
+.highlights__icon {
+  flex-shrink: 0;
+  font-size: clamp(20px, 1.8vw, 24px);
+  color: var(--gold-light);
+  line-height: 1;
+}
+
+.highlights__icon--image {
+  display: block;
+  width: clamp(22px, 2vw, 28px);
+  height: clamp(22px, 2vw, 28px);
+  background-color: var(--gold-light);
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+.highlights__label {
+  color: var(--gold-light);
+}
+
+@media (min-width: 901px) and (max-height: 860px) {
+  .highlights__item {
+    padding: 8px 12px;
+    font-size: 15px;
+  }
+
+  .highlights__icon {
+    font-size: 20px;
+  }
+
+  .highlights__icon--image {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (max-width: 900px) {
+  .highlights {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .highlights__item::after {
+    display: none;
+  }
+
+  .highlights__item:nth-child(odd)::after {
+    display: block;
+  }
+}
+
+@media (max-width: 520px) {
+  .highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .highlights__item {
+    justify-content: flex-start;
+  }
+
+  .highlights__item::after {
+    display: none;
+  }
+}

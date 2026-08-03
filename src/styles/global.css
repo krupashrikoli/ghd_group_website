@@ -1,0 +1,54 @@
+:root {
+  --gold: #a98852;
+  --gold-light: #c9b088;
+  --navy: #06264b;
+  --deep: #071525;
+  --white: #ffffff;
+  --card-blue: rgba(5, 42, 84, 0.76);
+  --card-green: rgba(0, 72, 67, 0.7);
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.26);
+  --radius: 28px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Nunito Sans', 'Quicksand', 'Trebuchet MS', Arial, sans-serif;
+  color: var(--white);
+  background: #0b3552;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+@media (min-width: 901px) {
+  html,
+  body,
+  #root {
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 900px) {
+  body {
+    overflow: auto;
+  }
+}
