@@ -3,11 +3,10 @@ import { navItems } from '../data/navigation'
 import './Header.css'
 
 type HeaderProps = {
-  onOpenAbout: () => void
   onOpenContact: () => void
 }
 
-export function Header({ onOpenAbout, onOpenContact }: HeaderProps) {
+export function Header({ onOpenContact }: HeaderProps) {
   return (
     <header className="site-header site-menu-bar" role="banner">
       <div className="site-menu-bar__inner">
@@ -22,7 +21,7 @@ export function Header({ onOpenAbout, onOpenContact }: HeaderProps) {
                 <button
                   type="button"
                   className="site-menu-bar__link"
-                  onClick={item.action === 'open-about' ? onOpenAbout : onOpenContact}
+                  onClick={onOpenContact}
                 >
                   {item.label}
                 </button>

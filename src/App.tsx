@@ -1,19 +1,16 @@
 import { useEffect, useState } from 'react'
-import { AboutModal } from './components/AboutModal'
 import { ContactModal } from './components/ContactModal'
 import { Header } from './components/Header'
 import { LandingPage } from './components/LandingPage'
 
-type OpenModal = 'about' | 'contact' | null
-
 export function App() {
-  const [openModal, setOpenModal] = useState<OpenModal>(null)
+  const [isContactOpen, setIsContactOpen] = useState(false)
 
   useEffect(() => {
-    if (!openModal) return
+    if (!isContactOpen) return
 
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setOpenModal(null)
+      if (event.key === 'Escape') setIsContactOpen(false)
     }
 
     const previousOverflow = document.body.style.overflow
@@ -24,17 +21,13 @@ export function App() {
       document.body.style.overflow = previousOverflow
       window.removeEventListener('keydown', onKeyDown)
     }
-  }, [openModal])
+  }, [isContactOpen])
 
   return (
     <>
-      <Header
-        onOpenAbout={() => setOpenModal('about')}
-        onOpenContact={() => setOpenModal('contact')}
-      />
+      <Header onOpenContact={() => setIsContactOpen(true)} />
       <LandingPage />
-      <AboutModal isOpen={openModal === 'about'} onClose={() => setOpenModal(null)} />
-      <ContactModal isOpen={openModal === 'contact'} onClose={() => setOpenModal(null)} />
+      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
     </>
   )
 }

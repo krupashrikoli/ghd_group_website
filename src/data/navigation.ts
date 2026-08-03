@@ -1,11 +1,10 @@
 export type NavItem = {
-  id: 'about' | 'contact'
+  id: 'contact'
   label: string
-  action: 'open-about' | 'open-contact'
+  action: 'open-contact'
 }
 
 export const navItems: NavItem[] = [
-  { id: 'about', label: 'About', action: 'open-about' },
   { id: 'contact', label: 'Contact', action: 'open-contact' },
 ]
 
